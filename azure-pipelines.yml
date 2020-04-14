@@ -11,9 +11,7 @@ pool:
 
 steps:
 - script: echo Hello, ICT DevOps!
-  displayName: 'Run a one-line script'
+  displayName: 'Say Hello'
 
-- script: |
-    echo Let us add more tasks to build, test, and deploy your project.
-    echo learn more about yaml!
-  displayName: 'Run a multi-line script'
+- script: bash build.sh
+  displayName: 'Run build script'
