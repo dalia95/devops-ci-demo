@@ -1,4 +1,28 @@
 # Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+#Triggers
+trigger:
+- master
+
+#Pools
+pool:
+  vmImage: 'ubuntu-latest'
+
+#Steps
+steps:
+
+#Say hello
+- script: echo Hello, ICT DevOps!
+  displayName: 'Say Hello'
+
+#Start the build process
+- script: bash build.sh
+  displayName: 'Run build script'
+
+#start the deployment process
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'su-devops-ci@40.117.233.105'
@@ -7,19 +31,3 @@
     cleanTargetFolder: true
     readyTimeout: '20000'
     failOnEmptySource: true
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- script: echo Hello, ICT DevOps!
-  displayName: 'Say Hello'
-
-- script: bash build.sh
-  displayName: 'Run build script'
