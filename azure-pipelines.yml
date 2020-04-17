@@ -6,6 +6,12 @@
 #Triggers
 trigger:
 - master
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'su-devops-ci@40.117.233.105'
+    sourceFolder: 'web/'
+    contents: '**'
+    readyTimeout: '20000'
 
 #Pools
 pool:
